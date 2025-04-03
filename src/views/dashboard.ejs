@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="price-box">
+      <% if (typeof ridePrice !== "undefined") { %>
+      <h3>Estimated Price: Rs<%= ridePrice %></h3>
+      <% } %>
+    </div>
+
+    <div class="container">
+      <h2>Ride Booking Dashboard</h2>
+      <form action="/submit-ride" method="POST">
+        <label for="ride_id">Ride ID:</label>
+        <input type="text" id="ride_id" name="ride_id" required />
+
+        <label for="battery_percentage">Battery Percentage:</label>
+        <input
+          type="number"
+          id="battery_percentage"
+          name="battery_percentage"
+          min="1"
+          max="100"
+          required />
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required />
+
+        <label for="distance">Distance (km):</label>
+        <input
+          type="number"
+          id="distance"
+          name="distance"
+          step="0.1"
+          required />
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </body>
+</html>
